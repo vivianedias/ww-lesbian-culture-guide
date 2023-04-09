@@ -13,7 +13,15 @@ export type Fields = {
     id: string;
   };
   status: string;
+  latitude: number;
+  longitude: number;
 };
+
+export type Marker = {
+  lat: number;
+  lng: number;
+  name: string;
+}
 
 export type Response = Array<
   {
