@@ -37,6 +37,8 @@ jobs:
 
       - name: Build
         run: yarn run build
+        env: 
+          SENTRY_AUTH_TOKEN: ${{ secrets.SENTRY_AUTH_TOKEN }}
 
       - name: SonarCloud Scan
         uses: sonarsource/sonarcloud-github-action@master
