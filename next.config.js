@@ -15,19 +15,19 @@ const nextConfig = {
     const isInMaintenance = process.env.NEXT_PUBLIC_MAINTENANCE_MODE === "1";
     const redirect = isInMaintenance
       ? [
-          {
-            source: "/",
-            destination: "/maintenance",
-            permanent: false,
-          },
-        ]
+        {
+          source: "/",
+          destination: "/maintenance",
+          permanent: false,
+        },
+      ]
       : [
-          {
-            source: "/maintenance",
-            destination: "/",
-            permanent: false,
-          },
-        ];
+        {
+          source: "/maintenance",
+          destination: "/",
+          permanent: false,
+        },
+      ];
     return redirect;
   },
 };
