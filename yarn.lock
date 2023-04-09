@@ -1359,6 +1359,11 @@
     minimatch "^3.1.2"
     strip-json-comments "^3.1.1"
 
+"@fontsource/comfortaa@^4.5.11":
+  version "4.5.11"
+  resolved "https://registry.yarnpkg.com/@fontsource/comfortaa/-/comfortaa-4.5.11.tgz#f3dc5e07637fc26b87e80897c611d60229d5e24c"
+  integrity sha512-KKC2C6KbF9BD6m9+wMf5hK0wFjIi3p3J/6C4JZW6OF9G6K4qZJFp2dBZzsEBepKh4s9/Q5G1SWsUUZY3ZeZNDA==
+
 "@heroicons/react@^2.0.17":
   version "2.0.17"
   resolved "https://registry.yarnpkg.com/@heroicons/react/-/react-2.0.17.tgz#42a8086bc434ceefc03592f20c4e81b11e915cf8"
