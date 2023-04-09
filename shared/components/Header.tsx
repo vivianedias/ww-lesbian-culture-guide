@@ -25,7 +25,7 @@ import {
 } from "@heroicons/react/24/outline";
 import { useTranslation } from "next-i18next";
 import { IS_IN_MAINTENANCE } from "../utils/constants";
-import Logo from './Logo'
+import Logo from "./Logo";
 
 export default function Header() {
   const { t } = useTranslation("header");
@@ -96,7 +96,7 @@ export default function Header() {
               bg: "pink.300",
             }}
           >
-            Contribute
+            {t("contribute")}
           </Button>
           <Button onClick={toggleColorMode}>
             {colorMode === "light" ? (
@@ -275,8 +275,8 @@ interface NavItem {
   href?: string;
 }
 
-const NAV_ITEMS = (t: (param: string) => string): NavItem[] => ([
-  // {                   
+const NAV_ITEMS = (t: (param: string) => string): NavItem[] => [
+  // {
   //   label: "Inspiration",
   //   children: [
   //     {
@@ -292,15 +292,15 @@ const NAV_ITEMS = (t: (param: string) => string): NavItem[] => ([
   //   ],
   // },
   {
-    label: t('pin'),
-    href: '/new-pin'
+    label: t("pin"),
+    href: "/new-pin",
   },
   {
-    label: t('about'),
-    href: '/about'
+    label: t("about"),
+    href: "/about",
   },
   {
-    label: t('homepage'),
-    href: '/'
-  }
-]);
+    label: t("homepage"),
+    href: "/",
+  },
+];

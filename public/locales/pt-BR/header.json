@@ -1,3 +1,7 @@
 {
-  "title": "Header - pt-BR"
+  "title": "Header",
+  "pin": "Novo pin",
+  "about": "Sobre nós",
+  "contribute": "Contribua",
+  "homepage": "Mapa"
 }
