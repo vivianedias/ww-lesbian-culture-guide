@@ -93,13 +93,6 @@ export default function Home({
   return (
     <>
       <Head title={t("title")} description={t("description")} />
-      {data.map((i) =>
-        i.name ? (
-          <p key={i.id}>
-            {i?.name} / {i?.notes} / {i?.assignee?.email} / {i?.status}{" "}
-          </p>
-        ) : null
-      )}
       <Box id="map-container" ref={mapContainer} height={"500px"} w={"full"} />
       {error ? <p>There was an error while fetching the data</p> : null}
     </>

@@ -74,7 +74,7 @@ export default function Header() {
         <Flex flex={{ base: 1 }} justify={{ base: "center", md: "start" }}>
           <Logo />
           <Flex display={{ base: "none", md: "flex" }} ml={10} align={"center"}>
-            <DesktopNav />
+            <DesktopNav t={t} />
           </Flex>
         </Flex>
 
@@ -84,15 +84,6 @@ export default function Header() {
           direction={"row"}
           spacing={6}
         >
-          <Button
-            as={"a"}
-            fontSize={"sm"}
-            fontWeight={400}
-            variant={"link"}
-            href={"#"}
-          >
-            Sign In
-          </Button>
           <Button
             as={"a"}
             display={{ base: "none", md: "inline-flex" }}
@@ -105,7 +96,7 @@ export default function Header() {
               bg: "pink.300",
             }}
           >
-            Sign Up
+            Contribute
           </Button>
           <Button onClick={toggleColorMode}>
             {colorMode === "light" ? (
@@ -118,20 +109,20 @@ export default function Header() {
       </Flex>
 
       <Collapse in={isOpen} animateOpacity>
-        <MobileNav />
+        <MobileNav t={t} />
       </Collapse>
     </Box>
   );
 }
 
-const DesktopNav = () => {
+const DesktopNav = ({ t }: { t: (param: string) => string }) => {
   const linkColor = useColorModeValue("gray.600", "gray.200");
   const linkHoverColor = useColorModeValue("gray.800", "white");
   const popoverContentBgColor = useColorModeValue("white", "gray.800");
 
   return (
     <Stack direction={"row"} spacing={4}>
-      {NAV_ITEMS.map((navItem) => (
+      {NAV_ITEMS(t).map((navItem) => (
         <Box key={navItem.label}>
           <Popover trigger={"hover"} placement={"bottom-start"}>
             <PopoverTrigger>
@@ -210,14 +201,14 @@ const DesktopSubNav = ({ label, href, subLabel }: NavItem) => {
   );
 };
 
-const MobileNav = () => {
+const MobileNav = ({ t }: { t: (param: string) => string }) => {
   return (
     <Stack
       bg={useColorModeValue("white", "gray.800")}
       p={4}
       display={{ md: "none" }}
     >
-      {NAV_ITEMS.map((navItem) => (
+      {NAV_ITEMS(t).map((navItem) => (
         <MobileNavItem key={navItem.label} {...navItem} />
       ))}
     </Stack>
@@ -284,43 +275,32 @@ interface NavItem {
   href?: string;
 }
 
-const NAV_ITEMS: Array<NavItem> = [
+const NAV_ITEMS = (t: (param: string) => string): NavItem[] => ([
+  // {                   
+  //   label: "Inspiration",
+  //   children: [
+  //     {
+  //       label: "Explore Design Work",
+  //       subLabel: "Trending Design to inspire you",
+  //       href: "#",
+  //     },
+  //     {
+  //       label: "New & Noteworthy",
+  //       subLabel: "Up-and-coming Designers",
+  //       href: "#",
+  //     },
+  //   ],
+  // },
   {
-    label: "Inspiration",
-    children: [
-      {
-        label: "Explore Design Work",
-        subLabel: "Trending Design to inspire you",
-        href: "#",
-      },
-      {
-        label: "New & Noteworthy",
-        subLabel: "Up-and-coming Designers",
-        href: "#",
-      },
-    ],
+    label: t('pin'),
+    href: '/new-pin'
   },
   {
-    label: "Find Work",
-    children: [
-      {
-        label: "Job Board",
-        subLabel: "Find your dream design job",
-        href: "#",
-      },
-      {
-        label: "Freelance Projects",
-        subLabel: "An exclusive list for contract work",
-        href: "#",
-      },
-    ],
+    label: t('about'),
+    href: '/about'
   },
   {
-    label: "Learn Design",
-    href: "#",
-  },
-  {
-    label: "Hire Designers",
-    href: "#",
-  },
-];
+    label: t('homepage'),
+    href: '/'
+  }
+]);

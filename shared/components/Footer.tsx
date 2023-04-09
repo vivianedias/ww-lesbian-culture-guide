@@ -33,7 +33,7 @@ export default function Footer() {
         align={{ base: "center", md: "center" }}
       >
         <Logo name={t("title")} />
-        <Text>© {currentYear} Viviane Dias. All rights reserved</Text>
+        <Text>© {currentYear} medusa.lab. All rights reserved.</Text>
         <Stack direction={"row"} spacing={6}>
           <SocialButton label={"Twitter"} href={"#"} />
           <SocialButton label={"YouTube"} href={"#"} />
