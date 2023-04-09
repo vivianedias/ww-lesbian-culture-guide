@@ -1,4 +1,6 @@
 import '../styles/globals.css'
+import "@fontsource/comfortaa"
+
 import type { AppProps } from 'next/app'
 import { ChakraProvider, extendTheme, VStack } from '@chakra-ui/react'
 import { SWRConfig } from "swr";

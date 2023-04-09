@@ -12,7 +12,6 @@ import {
   PopoverTrigger,
   PopoverContent,
   useColorModeValue,
-  useBreakpointValue,
   useDisclosure,
   useColorMode,
 } from "@chakra-ui/react";
@@ -26,6 +25,7 @@ import {
 } from "@heroicons/react/24/outline";
 import { useTranslation } from "next-i18next";
 import { IS_IN_MAINTENANCE } from "../utils/constants";
+import Logo from './Logo'
 
 export default function Header() {
   const { t } = useTranslation("header");
@@ -35,7 +35,6 @@ export default function Header() {
   const boxTextColor = useColorModeValue("gray.600", "white");
   const boxBgColor = useColorModeValue("white", "gray.800");
   const boxBorderColor = useColorModeValue("gray.200", "gray.900");
-  const logoTextColor = useColorModeValue("gray.800", "white");
 
   if (IS_IN_MAINTENANCE) {
     return null;
@@ -73,15 +72,8 @@ export default function Header() {
           />
         </Flex>
         <Flex flex={{ base: 1 }} justify={{ base: "center", md: "start" }}>
-          <Text
-            textAlign={{ base: "center", md: "left" }}
-            fontFamily={"heading"}
-            color={logoTextColor}
-          >
-            {t("title")}
-          </Text>
-
-          <Flex display={{ base: "none", md: "flex" }} ml={10}>
+          <Logo />
+          <Flex display={{ base: "none", md: "flex" }} ml={10} align={"center"}>
             <DesktopNav />
           </Flex>
         </Flex>
