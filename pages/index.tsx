@@ -25,11 +25,12 @@ export default function Home({
   const [zoom, setZoom] = useState(1.8)
   const [lat, setLat] = useState(0)
   const [lng, setLng] = useState(0)
+  const mapboxAccessToken = process.env.NEXT_PUBLIC_MAPBOX_ACCESS_TOKEN;
 
   useEffect(() => {
-    if (map.current) return; // initialize map only once
+    if (map.current || !mapboxAccessToken) return; // initialize map only once
 
-    mapboxgl.accessToken = 'pk.eyJ1IjoibWVkdXNhbGFiIiwiYSI6ImNsYWJoOWZtczAwZTQzcXI2cncyc25jczEifQ.laLpUHRLdwEpDfLM2E-F3w'
+    mapboxgl.accessToken = mapboxAccessToken;
 
     map.current = new mapboxgl.Map({
       container: mapContainer.current,
