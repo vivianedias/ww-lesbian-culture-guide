@@ -41,7 +41,7 @@ export default function Header() {
   }
 
   return (
-    <Box>
+    <Box fontFamily={"heading"}>
       <Flex
         bg={boxBgColor}
         color={boxTextColor}
@@ -71,11 +71,11 @@ export default function Header() {
             aria-label={"Toggle Navigation"}
           />
         </Flex>
-        <Flex flex={{ base: 1 }} justify={{ base: "center", md: "start" }}>
+        <Flex
+          flex={{ base: 1 }}
+          justify={{ base: "center", md: "space-between" }}
+        >
           <Logo />
-          <Flex display={{ base: "none", md: "flex" }} ml={10} align={"center"}>
-            <DesktopNav t={t} />
-          </Flex>
         </Flex>
 
         <Stack
@@ -84,16 +84,23 @@ export default function Header() {
           direction={"row"}
           spacing={6}
         >
+          <Flex
+            display={{ base: "none", md: "flex" }}
+            ml={10}
+            align={"center"}
+          >
+            <DesktopNav t={t} />
+          </Flex>
           <Button
             as={"a"}
             display={{ base: "none", md: "inline-flex" }}
             fontSize={"sm"}
             fontWeight={600}
             color={"white"}
-            bg={"pink.400"}
+            bg={"button"}
             href={"#"}
             _hover={{
-              bg: "pink.300",
+              bg: "buttonHover",
             }}
           >
             {t("contribute")}
@@ -118,7 +125,10 @@ export default function Header() {
 const DesktopNav = ({ t }: { t: (param: string) => string }) => {
   const linkColor = useColorModeValue("gray.600", "gray.200");
   const linkHoverColor = useColorModeValue("gray.800", "white");
-  const popoverContentBgColor = useColorModeValue("white", "gray.800");
+  const popoverContentBgColor = useColorModeValue(
+    "white",
+    "gray.800"
+  );
 
   return (
     <Stack direction={"row"} spacing={4}>
@@ -129,7 +139,7 @@ const DesktopNav = ({ t }: { t: (param: string) => string }) => {
               <Link
                 p={2}
                 href={navItem.href ?? "#"}
-                fontSize={"sm"}
+                fontSize={"md"}
                 fontWeight={500}
                 color={linkColor}
                 _hover={{
@@ -189,12 +199,20 @@ const DesktopSubNav = ({ label, href, subLabel }: NavItem) => {
           transition={"all .3s ease"}
           transform={"translateX(-10px)"}
           opacity={0}
-          _groupHover={{ opacity: "100%", transform: "translateX(0)" }}
+          _groupHover={{
+            opacity: "100%",
+            transform: "translateX(0)",
+          }}
           justify={"flex-end"}
           align={"center"}
           flex={1}
         >
-          <Icon color={"pink.400"} w={5} h={5} as={ChevronRightIcon} />
+          <Icon
+            color={"pink.400"}
+            w={5}
+            h={5}
+            as={ChevronRightIcon}
+          />
         </Flex>
       </Stack>
     </Link>
@@ -247,7 +265,11 @@ const MobileNavItem = ({ label, children, href }: NavItem) => {
         )}
       </Flex>
 
-      <Collapse in={isOpen} animateOpacity style={{ marginTop: "0!important" }}>
+      <Collapse
+        in={isOpen}
+        animateOpacity
+        style={{ marginTop: "0!important" }}
+      >
         <Stack
           mt={2}
           pl={4}
@@ -292,15 +314,15 @@ const NAV_ITEMS = (t: (param: string) => string): NavItem[] => [
   //   ],
   // },
   {
+    label: t("homepage"),
+    href: "/",
+  },
+  {
     label: t("pin"),
     href: "/new-pin",
   },
   {
     label: t("about"),
     href: "/about",
-  },
-  {
-    label: t("homepage"),
-    href: "/",
   },
 ];
