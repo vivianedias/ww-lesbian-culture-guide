@@ -8,9 +8,12 @@ import {
 import MapIcon from "./MapIcon";
 
 export default function Logo() {
-  const logoTextColor = useColorModeValue("gray.600", "gray.50");
+  const logoTextColor = useColorModeValue(
+    "textDarkMode",
+    "textLightMode"
+  );
   return (
-    <Box fontFamily={'"Comfortaa", cursive'}>
+    <Box fontFamily={"heading"}>
       <VStack spacing={0} color={logoTextColor} fontSize={"lg"}>
         <HStack align={"flex-end"}>
           <MapIcon boxSize={10} />
