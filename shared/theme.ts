@@ -1,4 +1,4 @@
-module.exports = {
+const theme = {
   config: {
     initialColorMode: "dark",
   },
@@ -14,3 +14,5 @@ module.exports = {
     buttonHover: "#c5b3ff",
   },
 };
+
+export default theme;
