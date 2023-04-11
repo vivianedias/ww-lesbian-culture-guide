@@ -14,9 +14,13 @@ export default function Logo() {
   );
   return (
     <Box fontFamily={"heading"}>
-      <VStack spacing={0} color={logoTextColor} fontSize={"lg"}>
-        <HStack align={"flex-end"}>
-          <MapIcon boxSize={10} />
+      <VStack
+        spacing={0}
+        color={logoTextColor}
+        fontSize={{ base: "sm", md: "lg" }}
+      >
+        <HStack>
+          <MapIcon boxSize={{ base: 8, md: 10 }} />
           <Text>lesbian culture guide</Text>
         </HStack>
       </VStack>

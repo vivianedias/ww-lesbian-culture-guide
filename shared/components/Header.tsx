@@ -229,6 +229,21 @@ const MobileNav = ({ t }: { t: (param: string) => string }) => {
       {NAV_ITEMS(t).map((navItem) => (
         <MobileNavItem key={navItem.label} {...navItem} />
       ))}
+      <Stack align={"center"}>
+        <Button
+          as={"a"}
+          fontSize={"sm"}
+          fontWeight={600}
+          color={"white"}
+          bg={"button"}
+          href={"#"}
+          _hover={{
+            bg: "buttonHover",
+          }}
+        >
+          {t("contribute")}
+        </Button>
+      </Stack>
     </Stack>
   );
 };
@@ -237,7 +252,11 @@ const MobileNavItem = ({ label, children, href }: NavItem) => {
   const { isOpen, onToggle } = useDisclosure();
 
   return (
-    <Stack spacing={4} onClick={children && onToggle}>
+    <Stack
+      spacing={4}
+      onClick={children && onToggle}
+      align={"center"}
+    >
       <Flex
         py={2}
         as={Link}
@@ -249,7 +268,8 @@ const MobileNavItem = ({ label, children, href }: NavItem) => {
         }}
       >
         <Text
-          fontWeight={600}
+          fontSize={"sm"}
+          fontWeight={500}
           color={useColorModeValue("gray.600", "gray.200")}
         >
           {label}
