@@ -37,6 +37,7 @@ export default function Footer() {
         <Link
           p={2}
           href={"https://www.medusalab.tech/en"}
+          isExternal
           fontWeight={500}
           color={"medusalab"}
           _hover={{
