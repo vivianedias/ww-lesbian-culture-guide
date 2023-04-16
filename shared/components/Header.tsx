@@ -73,17 +73,9 @@ export default function Header() {
         </Flex>
         <Flex
           flex={{ base: 1 }}
-          justify={{ base: "center", md: "space-between" }}
+          justify={{ base: "center", md: "start" }}
         >
           <Logo />
-        </Flex>
-
-        <Stack
-          flex={{ base: 1, md: 0 }}
-          justify={"flex-end"}
-          direction={"row"}
-          spacing={6}
-        >
           <Flex
             display={{ base: "none", md: "flex" }}
             ml={10}
@@ -91,6 +83,14 @@ export default function Header() {
           >
             <DesktopNav t={t} />
           </Flex>
+        </Flex>
+
+        <Stack
+          flex={{ base: 1, md: 0 }}
+          direction={"row"}
+          spacing={6}
+          justify={"flex-end"}
+        >
           <Button
             as={"a"}
             display={{ base: "none", md: "inline-flex" }}
