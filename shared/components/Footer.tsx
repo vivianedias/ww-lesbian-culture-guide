@@ -2,12 +2,10 @@ import { ReactNode } from "react";
 import { useTranslation } from "next-i18next";
 import {
   Box,
-  chakra,
-  Container,
-  Stack,
+  Flex,
+  Link,
   Text,
   useColorModeValue,
-  VisuallyHidden,
 } from "@chakra-ui/react";
 import { IS_IN_MAINTENANCE } from "shared/utils";
 
@@ -22,60 +20,32 @@ export default function Footer() {
   }
 
   return (
-    <Box as="footer" bg={boxBgColor} color={boxTextColor}>
-      <Container
-        as={Stack}
-        maxW={"6xl"}
-        py={4}
-        direction={{ base: "column", md: "row" }}
-        spacing={4}
-        justify={{ base: "center", md: "space-between" }}
+    <Box
+      bg={boxBgColor}
+      color={boxTextColor}
+      justifyItems={"start"}
+      fontFamily={"heading"}
+    >
+      <Flex
+        py={{ base: 4 }}
+        px={{ base: 4 }}
+        justify={{ base: "center", md: "flex-end" }}
         align={{ base: "center", md: "center" }}
+        fontSize={"sm"}
       >
-        <Logo name={t("title")} />
-        <Text>© {currentYear} medusa.lab. All rights reserved.</Text>
-        <Stack direction={"row"} spacing={6}>
-          <SocialButton label={"Twitter"} href={"#"} />
-          <SocialButton label={"YouTube"} href={"#"} />
-          <SocialButton label={"Instagram"} href={"#"} />
-        </Stack>
-      </Container>
+        <Text>{t("developedBy")}</Text>
+        <Link
+          p={2}
+          href={"https://www.medusalab.tech/en"}
+          fontWeight={500}
+          color={"medusalab"}
+          _hover={{
+            textDecoration: "none",
+          }}
+        >
+          {"<medusa.lab />"}
+        </Link>
+      </Flex>
     </Box>
   );
 }
-
-const Logo = (props: any) => {
-  return <Text>{props.name}</Text>;
-};
-
-const SocialButton = ({
-  children,
-  label,
-  href,
-}: {
-  children?: ReactNode;
-  label: string;
-  href: string;
-}) => {
-  return (
-    <chakra.button
-      bg={useColorModeValue("blackAlpha.100", "whiteAlpha.100")}
-      rounded={"full"}
-      w={8}
-      h={8}
-      cursor={"pointer"}
-      as={"a"}
-      href={href}
-      display={"inline-flex"}
-      alignItems={"center"}
-      justifyContent={"center"}
-      transition={"background 0.3s ease"}
-      _hover={{
-        bg: useColorModeValue("blackAlpha.200", "whiteAlpha.200"),
-      }}
-    >
-      <VisuallyHidden>{label}</VisuallyHidden>
-      {children}
-    </chakra.button>
-  );
-};

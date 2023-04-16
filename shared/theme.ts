@@ -12,6 +12,7 @@ const theme = {
     logoIcon: "#7043FF",
     button: "#7043FF",
     buttonHover: "#c5b3ff",
+    medusalab: "#7043FF",
   },
 };
 
